@@ -76,5 +76,5 @@ class GitHubClient:
                 result[num] = self.get_pr_comments(owner, repo, num)
             except Exception as e:
                 logging.exception("Falha ao buscar comentários do PR #%s: %s", num, e)
-            result[num] = []
+                result[num] = []
         return result

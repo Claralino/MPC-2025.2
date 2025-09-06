@@ -11,6 +11,7 @@ class Settings:
     github_token: str
     owner: str
     repo: str
+    pr_limit: int = 50
     group_number: str = ""
     participants: Optional[list[str]] = None
 

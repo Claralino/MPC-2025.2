@@ -7,7 +7,7 @@ from .processing import Metrics
 class PDF(FPDF):
     def header(self):
         self.set_font("Helvetica", "B", 14)
-        self.cell(0, 10, "Relatório – Análise de Comentários de PR", ln=True, align="C")
+        self.cell(0, 10, "Relatório - Análise de Comentários de PR", ln=True, align="C")
         self.ln(2)
 
 
