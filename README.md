@@ -47,14 +47,23 @@ Ferramenta em Python para coletar comentários dos 50 primeiros Pull Requests de
 
 ## Ambiente Virtual
 
-Crie e ative um ambiente virtual para isolar as dependências:
-
-Linux/Mac
-
-Windows (PowerShell)
+1. Crie um ambiente virtual para isolar as dependências:
 
 ```bash
-python -m venv venv
+python -m venv .venv
+```
+
+2. Ative o ambiente virtual:
+
+Linux/Mac:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows (PowerShell):
+
+```bash
 venv\Scripts\Activate
 ```
 
