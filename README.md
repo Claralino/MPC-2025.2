@@ -13,7 +13,7 @@ Ferramenta em Python para coletar comentários dos 50 primeiros Pull Requests de
   - Tamanho médio dos comentários (caracteres e palavras)
   - Quantos comentários contêm agradecimentos (e.g. thanks, obrigado, etc.)
 
-- Gera report.pdf com todas as respostas organizadas
+- Gera `report.pdf` com todas as respostas organizadas
 
 ## Pré-requisitos
 
@@ -114,7 +114,7 @@ Se preferir não instalar dependências localmente, é possível rodar tudo em c
    docker compose up --abort-on-container-exit
    ```
 
-Os arquivos de saída (pr_comments.csv e report.pdf) serão gerados em data/outputs/ no seu host.
+Os arquivos de saída (`pr_comments.csv` e `report.pdf`) serão gerados em `data/outputs/` no seu host.
 
 ## Notas
 
