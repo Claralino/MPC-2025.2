@@ -92,6 +92,14 @@ Saídas geradas:
 - `data/outputs/pr_comments.csv`
 - `data/outputs/report.pdf`
 
+## Testes unitários
+
+Para executar os testes unitários, utilize:
+
+```bash
+pytest -v
+```
+
 ## Notas
 
 - Nunca comite o `.env` com o token real.

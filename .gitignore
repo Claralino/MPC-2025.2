@@ -35,3 +35,9 @@ data/outputs/
 *.swp
 .DS_Store
 Thumbs.db
+
+# Arquivos de teste
+.pytest_cache/
+.coverage
+htmlcov/
+.nox/
