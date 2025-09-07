@@ -47,23 +47,23 @@ Ferramenta em Python para coletar comentários dos 50 primeiros Pull Requests de
 
 1. Crie um ambiente virtual para isolar as dependências:
 
-```bash
-python -m venv .venv
-```
+   ```bash
+   python -m venv .venv
+   ```
 
 2. Ative o ambiente virtual:
 
-Linux/Mac:
+   Linux/Mac:
 
-```bash
-source .venv/bin/activate
-```
+   ```bash
+   source .venv/bin/activate
+   ```
 
-Windows (PowerShell):
+   Windows (PowerShell):
 
-```bash
-venv\Scripts\Activate
-```
+   ```bash
+   venv\Scripts\Activate
+   ```
 
 ## Dependências
 
@@ -91,6 +91,30 @@ Saídas geradas:
 
 - `data/outputs/pr_comments.csv`
 - `data/outputs/report.pdf`
+
+## Executando com Docker
+
+Se preferir não instalar dependências localmente, é possível rodar tudo em container Docker.
+
+1. Gerar a imagem:
+
+   ```bash
+   docker compose build
+   ```
+
+2. Criar e preencher o .env
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Rodar a aplicação:
+
+   ```bash
+   docker compose up --abort-on-container-exit
+   ```
+
+Os arquivos de saída (pr_comments.csv e report.pdf) serão gerados em data/outputs/ no seu host.
 
 ## Notas
 

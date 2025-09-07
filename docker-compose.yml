@@ -1,0 +1,18 @@
+services:
+  pr-analyzer:
+    build: .
+    env_file:
+      - .env
+    volumes:
+      - ./data/outputs:/app/data/outputs
+    command:
+      [
+        '--owner',
+        'TheAlgorithms',
+        '--repo',
+        'Python',
+        '--limit',
+        '50',
+        '--outdir',
+        'data/outputs',
+      ]
