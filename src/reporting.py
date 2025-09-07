@@ -8,7 +8,7 @@ class PDF(FPDF):
     def __init__(self):
         super().__init__(orientation="P", unit="mm", format="A4")
         self.set_margins(left=30, top=30, right=20)
-        self.set_auto_page_break(auto=True, margin=20)  # 20 mm from bottom
+        self.set_auto_page_break(auto=True, margin=20)  # 2 cm from bottom
 
     def header(self):
         self.set_font("Times", "B", 14)  # title
