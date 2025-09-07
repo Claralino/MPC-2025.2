@@ -1,3 +1,37 @@
+# Ambiente virtual
+.venv/
+venv/
+ENV/
+
+# Arquivos de configuração locais
 .env
-venv
-pr_comments.csv
+*.env
+
+# Cache e metadados do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pkl
+*.db
+
+# Diretórios temporários de build e dist
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Saídas geradas pelo programa
+data/outputs/
+*.csv
+*.pdf
+
+# Logs
+*.log
+
+# Ferramentas de IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,15 +1,24 @@
-# MCP-2025.2
+# Analisador de Comentários de PR (GitHub GraphQL)
 
-Script em Python para coletar comentários de Pull Requests de um repositório no GitHub via API GraphQL e exportar para CSV.
+Ferramenta em Python para coletar comentários dos 50 primeiros Pull Requests de um repositório no GitHub via API GraphQL, gerar um CSV estruturado e um PDF com estatísticas e respostas pedidas.
 
----
+## Funcionalidades
+
+- Coleta comentários de PRs de forma paginada via GraphQL
+- Gera `pr_comments.csv` (seguro contra vírgulas e quebras de linha nos comentários)
+- Calcula métricas como:
+
+  - Total de comentários
+  - Média de comentários por PR
+  - Tamanho médio dos comentários (caracteres e palavras)
+  - Quantos comentários contêm agradecimentos (e.g. thanks, obrigado, etc.)
+
+- Gera report.pdf com todas as respostas organizadas
 
 ## Pré-requisitos
 
 - Python 3.9+ instalado
 - [GitHub Personal Access Token](https://github.com/settings/tokens) com permissão de leitura em repositórios públicos
-
----
 
 ## Configuração
 
@@ -30,18 +39,29 @@ Script em Python para coletar comentários de Pull Requests de um repositório n
 
    ```bash
    GITHUB_TOKEN=seu_token_aqui
+   GROUP_NUMBER=XX
+   PARTICIPANTS=Nome1; Nome2; Nome3
    ```
 
 ## Ambiente Virtual
 
-Crie e ative um ambiente virtual para isolar as dependências:
-
-Linux/Mac
-
-Windows (PowerShell)
+1. Crie um ambiente virtual para isolar as dependências:
 
 ```bash
-python -m venv venv
+python -m venv .venv
+```
+
+2. Ative o ambiente virtual:
+
+Linux/Mac:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows (PowerShell):
+
+```bash
 venv\Scripts\Activate
 ```
 
@@ -61,18 +81,17 @@ pip freeze > requirements.txt
 
 ## Como rodar
 
-Após configurar tudo:
+Execute o programa:
 
 ```bash
-python main.py
+python -m src.main --owner TheAlgorithms --repo Python --limit 50 --outdir data/outputs
 ```
 
-O script vai gerar um arquivo:
+Saídas geradas:
 
-```bash
-pr_comments.csv
-```
+- `data/outputs/pr_comments.csv`
+- `data/outputs/report.pdf`
 
 ## Notas
 
-- Não comite seu .env com o token.
+- Nunca comite o `.env` com o token real.
