@@ -2,7 +2,6 @@ from pathlib import Path
 from src.reporting import build_pdf
 from src.processing import Metrics
 
-
 def test_build_pdf_smoke(tmp_path: Path):
     pdf_path = tmp_path / "report.pdf"
     metrics = Metrics(
