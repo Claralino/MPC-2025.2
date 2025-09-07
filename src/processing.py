@@ -25,7 +25,7 @@ class Metrics:
 
 
 def normalize_comment(text: str) -> str:
-# Mantém pontuação, normaliza espaços e quebras de linha
+    """Mantém pontuação, normaliza espaços e quebras de linha"""
     return re.sub(r"\s+", " ", (text or "").strip())
 
 
