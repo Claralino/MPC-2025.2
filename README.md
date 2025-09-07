@@ -2,8 +2,6 @@
 
 Ferramenta em Python para coletar comentários dos 50 primeiros Pull Requests de um repositório no GitHub via API GraphQL, gerar um CSV estruturado e um PDF com estatísticas e respostas pedidas.
 
----
-
 ## Funcionalidades
 
 - Coleta comentários de PRs de forma paginada via GraphQL
