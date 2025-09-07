@@ -24,39 +24,34 @@ def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.DEBUG if args.verbose else logging.INFO, format="%(levelname)s: %(message)s")
 
-
     cfg = Settings.from_env()
     owner = args.owner or cfg.owner
     repo = args.repo or cfg.repo
     limit = args.limit or cfg.pr_limit
 
-
     client = GitHubClient(cfg.github_token)
-
 
     logging.info("Buscando primeiros %d PRs de %s/%s...", limit, owner, repo)
     pr_numbers = client.get_first_pr_numbers(owner, repo, limit)
 
-
     logging.info("Coletando comentários (com paginação) para %d PRs...", len(pr_numbers))
     comments_by_pr = client.get_comments_for_prs(owner, repo, pr_numbers)
-
 
     outdir = Path(args.outdir)
     csv_path = outdir / "pr_comments.csv"
     export_comments_csv(comments_by_pr, csv_path)
     logging.info("CSV gerado: %s", csv_path)
 
-
     metrics = analyze(comments_by_pr)
     repo_url = f"https://github.com/{owner}/{repo}"
     pdf_path = outdir / "report.pdf"
     build_pdf(
-    out_path=pdf_path,
-    repo_url=repo_url,
-    metrics=metrics,
-    group_number=cfg.group_number,
-    participants=cfg.participants or [],
+        out_path=pdf_path,
+        repo_url=repo_url,
+        metrics=metrics,
+        group_number=cfg.group_number,
+        participants=cfg.participants or [],
+        own_repo=cfg.own_repo 
     )
     logging.info("PDF gerado: %s", pdf_path)
 

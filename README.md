@@ -41,6 +41,7 @@ Ferramenta em Python para coletar comentários dos 50 primeiros Pull Requests de
    GITHUB_TOKEN=seu_token_aqui
    GROUP_NUMBER=XX
    PARTICIPANTS=Nome1; Nome2; Nome3
+   OWN_REPO=https://github.com/Claralino/MPC-2025.2/
    ```
 
 ## Ambiente Virtual
@@ -92,7 +93,6 @@ Saídas geradas:
 - `data/outputs/pr_comments.csv`
 - `data/outputs/report.pdf`
 
-
 ## Executando com Docker
 
 Se preferir não instalar dependências localmente, é possível rodar tudo em container Docker.
@@ -116,7 +116,6 @@ Se preferir não instalar dependências localmente, é possível rodar tudo em c
    ```
 
 Os arquivos de saída (`pr_comments.csv` e `report.pdf`) serão gerados em `data/outputs/` no seu host.
-
 
 ## Testes Unitários
 

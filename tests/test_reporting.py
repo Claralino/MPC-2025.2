@@ -17,5 +17,6 @@ def test_build_pdf_smoke(tmp_path: Path):
         metrics=metrics,
         group_number="42",
         participants=["Alice", "Bob"],
+        own_repo="https://github.com/me/repo"
     )
     assert pdf_path.exists() and pdf_path.stat().st_size > 1000
