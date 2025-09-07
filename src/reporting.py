@@ -15,7 +15,7 @@ class PDF(FPDF):
         self.cell(0, 10, "Relatório - Análise de Comentários de PR", ln=True, align="C")
         if hasattr(self, "own_repo") and self.own_repo:
             self.set_font("Times", "I", 12)
-            self.cell(0, 10, f"Repositório do grupo: {self.own_repo}", ln=True, align="C")
+            self.cell(0, 10, f"Por: {self.own_repo}", ln=True, align="C")
         self.ln(5)
 
 
