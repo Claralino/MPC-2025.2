@@ -6,7 +6,7 @@ def test_normalize_comment_spaces_and_newlines():
 
 
 def test_analyze_basic_metrics():
-    comments_by_pr = {1: ["Thanks!", "Ok"], 2: ["Obrigado!"], 3: []}
+    comments_by_pr = {1: ["Thanks!; Valeu", "Ok"], 2: ["Obrigado!"], 3: []}
     m = analyze(comments_by_pr)
     assert m.total_comments == 3
     assert m.avg_comments_per_pr == pytest.approx(1.0) # 3 comments / 3 PRs
