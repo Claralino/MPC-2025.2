@@ -5,24 +5,29 @@ from .processing import Metrics
 
 
 class PDF(FPDF):
+    def __init__(self):
+        super().__init__(orientation="P", unit="mm", format="A4")
+        self.set_margins(left=30, top=30, right=20)
+        self.set_auto_page_break(auto=True, margin=20)  # 20 mm from bottom
+
     def header(self):
-        self.set_font("Helvetica", "B", 14)
+        self.set_font("Times", "B", 14)  # title
         self.cell(0, 10, "Relatório - Análise de Comentários de PR", ln=True, align="C")
-        self.ln(2)
+        self.ln(5)
 
 
     def footer(self):
-        self.set_y(-15)
-        self.set_font("Helvetica", size=8)
+        self.set_y(-20)  # 2 cm from bottom
+        self.set_font("Times", size=10)
         self.cell(0, 10, f"Página {self.page_no()}", align="C")
 
 
 def _line(pdf: FPDF, label: str, value: str):
-    pdf.set_font("Helvetica", "B", 11)
+    pdf.set_font("Times", "B", 12)  # section title
     pdf.multi_cell(0, 8, label)
-    pdf.set_font("Helvetica", size=11)
+    pdf.set_font("Times", size=12) # body
     pdf.multi_cell(0, 8, value)
-    pdf.ln(1)
+    pdf.ln(4)
 
 
 def build_pdf(
@@ -34,7 +39,7 @@ def build_pdf(
 ):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     pdf = PDF()
-    pdf.set_auto_page_break(auto=True, margin=15)
+    pdf.set_auto_page_break(auto=True, margin=20)
     pdf.add_page()
 
 
