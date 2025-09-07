@@ -13,6 +13,9 @@ class PDF(FPDF):
     def header(self):
         self.set_font("Times", "B", 14)  # title
         self.cell(0, 10, "Relatório - Análise de Comentários de PR", ln=True, align="C")
+        if hasattr(self, "own_repo") and self.own_repo:
+            self.set_font("Times", "I", 12)
+            self.cell(0, 10, f"Repositório do grupo: {self.own_repo}", ln=True, align="C")
         self.ln(5)
 
 
@@ -36,12 +39,12 @@ def build_pdf(
     metrics: Metrics,
     group_number: str,
     participants: list[str],
+    own_repo: str = "",  
 ):
     out_path.parent.mkdir(parents=True, exist_ok=True)
     pdf = PDF()
-    pdf.set_auto_page_break(auto=True, margin=20)
+    pdf.own_repo = own_repo  
     pdf.add_page()
-
 
     # (a) Grupo e participantes
     _line(pdf, "(a) Grupo e Participantes", f"Grupo: {group_number or '-'} | Participantes: {', '.join(participants) if participants else '-'}")

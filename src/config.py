@@ -14,6 +14,7 @@ class Settings:
     pr_limit: int = 50
     group_number: str = ""
     participants: Optional[list[str]] = None
+    own_repo: str = ""
 
 
     @staticmethod
@@ -29,6 +30,7 @@ class Settings:
         group_number = os.getenv("GROUP_NUMBER", "").strip()
         participants_raw = os.getenv("PARTICIPANTS", "").strip()
         participants = [p.strip() for p in participants_raw.split(";") if p.strip()] if participants_raw else []
+        own_repo = os.getenv("OWN_REPO", "").strip()
         return Settings(
             github_token=token,
             owner=owner,
@@ -36,4 +38,5 @@ class Settings:
             pr_limit=pr_limit,
             group_number=group_number,
             participants=participants,
+            own_repo=own_repo
         )
