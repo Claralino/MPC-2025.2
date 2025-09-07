@@ -92,6 +92,7 @@ Saídas geradas:
 - `data/outputs/pr_comments.csv`
 - `data/outputs/report.pdf`
 
+
 ## Executando com Docker
 
 Se preferir não instalar dependências localmente, é possível rodar tudo em container Docker.
@@ -115,6 +116,15 @@ Se preferir não instalar dependências localmente, é possível rodar tudo em c
    ```
 
 Os arquivos de saída (`pr_comments.csv` e `report.pdf`) serão gerados em `data/outputs/` no seu host.
+
+
+## Testes Unitários
+
+Para executar os testes unitários, utilize:
+
+```bash
+pytest -v
+```
 
 ## Notas
 
