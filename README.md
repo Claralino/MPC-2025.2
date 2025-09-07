@@ -92,7 +92,7 @@ Saídas geradas:
 - `data/outputs/pr_comments.csv`
 - `data/outputs/report.pdf`
 
-## Testes unitários
+## Testes Unitários
 
 Para executar os testes unitários, utilize:
 
